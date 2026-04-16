@@ -1,0 +1,25 @@
+# ── Configuração sensível ─────────────────────────────────────────────────────
+admin/config.php
+
+# ── Dependências / cache ──────────────────────────────────────────────────────
+vendor/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+error_log
+
+# ── Uploads de usuários (não versionar arquivos enviados) ─────────────────────
+uploads/
+
+# ── Arquivos de ambiente ──────────────────────────────────────────────────────
+.env
+.env.local
+
+# ── Editores ──────────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
