@@ -1,15 +1,120 @@
 <!DOCTYPE html>
-<html lang="pt">
-	
+<html lang="pt-BR">
+
 <head>
-		<title>Amei Cosm&eacute;ticos | F&aacute;brica de Cosm&eacute;ticos e Perfumaria Fina</title>
-<meta name="description" content="Amei Cosméticos, venha ser um revendedor Amei Cosméticos.
-Somos especializados em perfumaria fina e cosméticos de extrema qualidade.
-Revenda os nossos produtos, ganhe 100% de comissão ou mais." />
-<meta name="keywords" content="fábrica de perfumes, comprar produtos direto da fábrica, revender cosméticos, Amei Cosméticos, ganhar dinheiro, negócio próprio, renda extra, franquia, ganhar mais, ganhar mais dinheiro,
-amei cosméticos, amei cosmeticos, perfumes de 15ml, revender perfume" />
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Melhores Perfumes Importados | Amei Cosméticos — Fábrica Direto ao Revendedor</title>
+<meta name="description" content="Conheça os melhores perfumes importados da Amei Cosméticos. Perfumaria fina de alta performance direto da fábrica. Seja um revendedor, ganhe 100% ou mais de lucro. Sem consulta ao SPC e Serasa!"/>
+<meta name="keywords" content="melhores perfumes, melhores perfumes importados, perfumes baratos de qualidade, perfumes importados baratos, revender perfumes, fábrica de perfumes, perfumes direto da fábrica, como ganhar dinheiro com perfumes, ser revendedor de cosméticos, Amei Cosméticos, perfumes 17ml, perfumes 30ml, perfumes 100ml, perfumaria fina, perfumes de qualidade, perfumes nacionais, renda extra com perfumes, negócio de perfumes, ganhar dinheiro revendendo, cosméticos direto da fábrica"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Amei Cosméticos"/>
+<link rel="canonical" href="https://ameicosmeticos.com.br/"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://ameicosmeticos.com.br/"/>
+<meta property="og:title" content="Melhores Perfumes Importados | Amei Cosméticos — Fábrica Direto ao Revendedor"/>
+<meta property="og:description" content="Conheça os melhores perfumes importados da Amei Cosméticos. Perfumaria fina de alta performance direto da fábrica. Seja um revendedor, ganhe 100% ou mais de lucro. Sem consulta ao SPC e Serasa!"/>
+<meta property="og:image" content="https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta property="og:site_name" content="Amei Cosméticos"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Melhores Perfumes Importados | Amei Cosméticos"/>
+<meta name="twitter:description" content="Perfumaria fina direto da fábrica. Revenda e ganhe 100% ou mais de lucro. Sem SPC e Serasa!"/>
+<meta name="twitter:image" content="https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://ameicosmeticos.com.br/#organization",
+      "name": "Amei Cosméticos",
+      "url": "https://ameicosmeticos.com.br/",
+      "logo": "https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png",
+      "description": "Fábrica de perfumaria fina e cosméticos de alta performance direto ao revendedor.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "BR"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "availableLanguage": "Portuguese"
+      },
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://ameicosmeticos.com.br/#website",
+      "url": "https://ameicosmeticos.com.br/",
+      "name": "Amei Cosméticos",
+      "publisher": {"@id": "https://ameicosmeticos.com.br/#organization"},
+      "inLanguage": "pt-BR",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://ameicosmeticos.com.br/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ameicosmeticos.com.br/#webpage",
+      "url": "https://ameicosmeticos.com.br/",
+      "name": "Melhores Perfumes Importados | Amei Cosméticos — Fábrica Direto ao Revendedor",
+      "description": "Conheça os melhores perfumes importados da Amei Cosméticos. Perfumaria fina de alta performance direto da fábrica.",
+      "isPartOf": {"@id": "https://ameicosmeticos.com.br/#website"},
+      "about": {"@id": "https://ameicosmeticos.com.br/#organization"},
+      "inLanguage": "pt-BR"
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://ameicosmeticos.com.br/#localbusiness",
+      "name": "Amei Cosméticos",
+      "url": "https://ameicosmeticos.com.br/",
+      "image": "https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png",
+      "description": "Fábrica de perfumaria fina e cosméticos. Seja um revendedor e ganhe 100% ou mais de lucro.",
+      "priceRange": "$$",
+      "address": {"@type": "PostalAddress", "addressCountry": "BR"},
+      "openingHours": "Mo-Fr 08:00-18:00"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quais são os melhores perfumes importados para revender?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A Amei Cosméticos oferece os melhores perfumes importados em versões de 17ml, 30ml e 100ml, com alta fixação e qualidade de perfumaria fina, ideais para revenda com lucro de 100% ou mais."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Como ganhar dinheiro revendendo perfumes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Com a Amei Cosméticos você compra direto da fábrica e revende com até 100% de lucro. Não consultamos SPC e Serasa. Cadastre-se gratuitamente e comece hoje."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "A Amei Cosméticos consulta SPC e Serasa?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Não! A Amei Cosméticos não consulta SPC nem Serasa. Qualquer pessoa pode se tornar revendedora e trabalhar com os melhores perfumes do mercado."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
 
 				<link id="wsite-base-style" rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/sitesd186.css?buildTime=1234" />
 <link rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/old/fancybox81dc.css?1234" />
@@ -884,7 +989,7 @@ de Alta Performance.</font></font></strong>
 </div>
 
 <div style="text-align:center;"><div style="height: 10px; overflow: hidden;"></div>
-<a class="wsite-button wsite-button-large wsite-button-highlight" href="https://ameicosmeticos.com.br/sistema/cadastro/oseiaswgi" >
+<a class="wsite-button wsite-button-large wsite-button-highlight" href="cadastro.php" >
 <span class="wsite-button-inner">&gt; SEJA UM(A) REVENDEDOR(A) &lt;</span>
 </a>
 <div style="height: 10px; overflow: hidden;"></div></div>
@@ -939,11 +1044,6 @@ de Alta Performance.</font></font></strong>
 <div style="display:block;font-size:90%"></div>
 </div></div>
 
-<div class="paragraph" style="text-align:center;"><font size="3">SIGA NOSSOS CANAIS</font></div>
-
-<div style="text-align:center;"><div style="height:0px;overflow:hidden"></div>
-<span class="wsite-social wsite-social-default"><a class='first-child wsite-social-item wsite-social-facebook' href='https://www.facebook.com/ameicosmeticos' target='_blank' alt='Facebook' aria-label='Facebook'><span class='wsite-social-item-inner'></span></a><a class='wsite-social-item wsite-social-instagram' href='https://www.instagram.com/oficial_ameicosmeticos/' target='_blank' alt='Instagram' aria-label='Instagram'><span class='wsite-social-item-inner'></span></a><a class='last-child wsite-social-item wsite-social-youtube' href='https://www.youtube.com/c/AmeiCosméticosOficial/videos' target='_blank' alt='Youtube' aria-label='Youtube'><span class='wsite-social-item-inner'></span></a></span>
-<div style="height:0px;overflow:hidden"></div></div>
 
 
 					
@@ -951,7 +1051,7 @@ de Alta Performance.</font></font></strong>
 					
 						
 
-<div class="paragraph" style="text-align:center;"><font size="3"><strong>ENTRE EM CONTATO&nbsp;<br /><font color="#ff6c00">&#8203;</font></strong><br />Tel: (19) 3132-0626<br />Whatsapp: (19) 98235-5796&nbsp;<br /><a href="cdn-cgi/l/email-protection.html" class="__cf_email__" data-cfemail="cbaabfaea5afa2a6aea5bfa48baaa6aea2a8a4b8a6aebfa2a8a4b8e5a8a4a6e5a9b9">[email&#160;protected]</a><br />Av. Roberto Lacerda de Oliveira, 191<br />Araras/SP - CEP 13603-134</font></div>
+<div class="paragraph" style="text-align:center;"><font size="3"><strong>ENTRE EM CONTATO&nbsp;<br /><font color="#ff6c00">&#8203;</font></strong><br /><a href="https://wa.me/5561982290919" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Whatsapp: (61) 98229-0919</a><br /><a href="mailto:oseiascw@gmail.com">oseiascw@gmail.com</a></font></div>
 
 
 					
@@ -959,10 +1059,11 @@ de Alta Performance.</font></font></strong>
 					
 						
 
-<div class="paragraph" style="text-align:center;"><font color="#ffffff"><em><font size="2"><em><a href="plano-de-negocios0c66.html?aff=">Plano de Neg&oacute;cios</a>, <a href="https://docs.google.com/document/d/1DVUPV0c2sht_LtRx9Q8nzsjG_Wu-ZAzZ/edit?usp=sharing&amp;ouid=107083626371783606892&amp;rtpof=true&amp;sd=true" target="_blank">&Eacute;tica e Conduta</a>, <a href="https://drive.google.com/file/d/12UUZVBHZaDBqlosYtIFSm4PbsvcoKQwN/view" target="_blank">Manual do Ponto de Apoio</a> <br>
-Beneficiando o maior numero de pessoas!</em></font></em></font><br />
-<br />
-<font size="2">A melhor empresa para se ganhar dinheiro com produtos reais, voc&ecirc; vai Amar!</font><font size="2"><br />&#8203;<br />&#8203;</font><span style="color:rgb(255, 255, 255)">Copyright &copy; 2014<br />&#8203;</span><br /><font size="2">Todos os Direitos Reservados.</font></div>
+<div class="paragraph" style="text-align:center;">
+<font size="2">A melhor empresa para se ganhar dinheiro com produtos reais, voc&ecirc; vai Amar!</font><br /><br />
+<span style="color:rgb(255, 255, 255)">Copyright &copy; 2014</span><br />
+<font size="2">Todos os Direitos Reservados.</font>
+</div>
 
 
 					
@@ -983,6 +1084,91 @@ Beneficiando o maior numero de pessoas!</em></font></em></font><br />
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 	<script type="text/javascript" src="files/theme/plugins.js"></script>
 	<script type="text/javascript" src="files/theme/custom.js"></script>
+
+<!-- Botão flutuante WhatsApp -->
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.whatsapp-float .wa-bubble {
+    background: #fff;
+    color: #333;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    white-space: nowrap;
+    animation: waBubblePop 0.4s ease 1.2s both;
+    opacity: 0;
+}
+.whatsapp-float .wa-btn {
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.55);
+    animation: waPulse 1.8s ease-in-out infinite;
+    position: relative;
+    flex-shrink: 0;
+}
+.whatsapp-float .wa-btn svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+.whatsapp-float .wa-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: #e53935;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    animation: waBadgeBounce 1s ease 2s infinite;
+}
+@keyframes waPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
+    70%  { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+@keyframes waBubblePop {
+    from { opacity: 0; transform: scale(0.8) translateX(10px); }
+    to   { opacity: 1; transform: scale(1) translateX(0); }
+}
+@keyframes waBadgeBounce {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.25); }
+}
+@media (max-width: 480px) {
+    .whatsapp-float { bottom: 18px; right: 16px; }
+    .whatsapp-float .wa-bubble { display: none; }
+}
+</style>
+<a class="whatsapp-float" href="https://wa.me/5561982290919?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Amei%20Cosm%C3%A9ticos%20e%20quero%20saber%20mais!" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
+    <span class="wa-bubble">Olá, como posso ajudar? 👋</span>
+    <span class="wa-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.469 2.027 7.77L0 32l8.437-2.007A15.934 15.934 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.28 13.28 0 0 1-6.771-1.845l-.485-.288-5.007 1.192 1.23-4.882-.317-.502A13.267 13.267 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.986c-.398-.199-2.354-1.162-2.72-1.294-.365-.133-.631-.199-.897.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.361-2.214-2.759-.232-.398-.025-.613.174-.811.179-.179.398-.465.597-.698.199-.232.265-.398.398-.664.133-.265.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.777-.653-.672-.897-.684l-.764-.013c-.265 0-.697.1-.1062.498-.365.398-1.395 1.362-1.395 3.322s1.428 3.853 1.627 4.119c.199.265 2.811 4.291 6.812 6.021.952.411 1.695.657 2.274.841.955.304 1.825.261 2.513.158.767-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.891-.099-.165-.365-.265-.763-.464z"/></svg>
+        <span class="wa-badge">1</span>
+    </span>
+</a>
     </body>
 
 </html>

@@ -88,12 +88,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-BR">
 <head>
-	<title>Cadastro de Consultor(a) | Amei Cosm&eacute;ticos</title>
-	<meta name="description" content="Cadastre-se como consultor(a) Amei Cosméticos e comece a ganhar dinheiro revendendo produtos de qualidade." />
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Cadastro de Consultor(a) Grátis | Amei Cosméticos — Comece a Revender Perfumes</title>
+<meta name="description" content="Faça seu cadastro gratuito como consultor(a) Amei Cosméticos. Sem consulta ao SPC e Serasa. Comece a revender os melhores perfumes importados e ganhe 100% ou mais de lucro!"/>
+<meta name="keywords" content="cadastro consultor Amei Cosméticos, ser revendedor de perfumes, cadastro gratuito perfumes, revenda de perfumes sem SPC, trabalhar com perfumes importados, consultora de cosméticos, cadastro revenda perfumaria fina"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Amei Cosméticos"/>
+<link rel="canonical" href="https://ameicosmeticos.com.br/cadastro.php"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://ameicosmeticos.com.br/cadastro.php"/>
+<meta property="og:title" content="Cadastro Gratuito de Consultor(a) | Amei Cosméticos"/>
+<meta property="og:description" content="Cadastre-se grátis e comece a revender os melhores perfumes importados. Sem SPC e Serasa!"/>
+<meta property="og:image" content="https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
+<meta property="og:locale" content="pt_BR"/>
+<meta property="og:site_name" content="Amei Cosméticos"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Cadastro Gratuito | Amei Cosméticos"/>
+<meta name="twitter:description" content="Cadastre-se grátis e revenda os melhores perfumes importados com até 100% de lucro!"/>
+<meta name="twitter:image" content="https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://ameicosmeticos.com.br/cadastro.php#webpage",
+  "url": "https://ameicosmeticos.com.br/cadastro.php",
+  "name": "Cadastro de Consultor(a) Grátis | Amei Cosméticos — Comece a Revender Perfumes",
+  "description": "Faça seu cadastro gratuito como consultor(a) Amei Cosméticos e comece a revender os melhores perfumes importados.",
+  "isPartOf": {"@id": "https://ameicosmeticos.com.br/#website"},
+  "inLanguage": "pt-BR"
+}
+</script>
 
 	<link id="wsite-base-style" rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/sitesd186.css?buildTime=1234" />
 	<link rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/old/fancybox81dc.css?1234" />
@@ -543,17 +576,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 					<div><div class="wsite-image wsite-image-border-none" style="padding:10px 0;text-align:center;">
 						<img src="uploads/1/2/9/1/12910257/2350881_orig.png" alt="Imagem" style="width:auto;max-width:100%" />
 					</div></div>
-					<div class="paragraph" style="text-align:center;"><font size="3">SIGA NOSSOS CANAIS</font></div>
-					<div style="text-align:center;">
-						<span class="wsite-social wsite-social-default">
-							<a class='first-child wsite-social-item wsite-social-facebook' href='https://www.facebook.com/ameicosmeticos' target='_blank' aria-label='Facebook'><span class='wsite-social-item-inner'></span></a>
-							<a class='wsite-social-item wsite-social-instagram' href='https://www.instagram.com/oficial_ameicosmeticos/' target='_blank' aria-label='Instagram'><span class='wsite-social-item-inner'></span></a>
-							<a class='last-child wsite-social-item wsite-social-youtube' href='https://www.youtube.com/c/AmeiCosm%C3%A9ticosOficial/videos' target='_blank' aria-label='Youtube'><span class='wsite-social-item-inner'></span></a>
-						</span>
-					</div>
 				</td>
 				<td class="wsite-multicol-col" style="width:32.3%;padding:0 15px;">
-					<div class="paragraph" style="text-align:center;"><font size="3"><strong>ENTRE EM CONTATO</strong><br />Tel: (19) 3132-0626<br />Whatsapp: (19) 98235-5796<br />Av. Roberto Lacerda de Oliveira, 191<br />Araras/SP - CEP 13603-134</font></div>
+					<div class="paragraph" style="text-align:center;"><font size="3"><strong>ENTRE EM CONTATO</strong><br /><a href="https://wa.me/5561982290919" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;">Whatsapp: (61) 98229-0919</a><br /><a href="mailto:oseiascw@gmail.com">oseiascw@gmail.com</a></font></div>
 				</td>
 				<td class="wsite-multicol-col" style="width:42%;padding:0 15px;">
 					<div class="paragraph" style="text-align:center;">
@@ -690,5 +715,90 @@ function mostrarErro(el, msg) {
 	el.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 </script>
+
+<!-- Botão flutuante WhatsApp -->
+<style>
+.whatsapp-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+.whatsapp-float .wa-bubble {
+    background: #fff;
+    color: #333;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+    white-space: nowrap;
+    animation: waBubblePop 0.4s ease 1.2s both;
+    opacity: 0;
+}
+.whatsapp-float .wa-btn {
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37,211,102,0.55);
+    animation: waPulse 1.8s ease-in-out infinite;
+    position: relative;
+    flex-shrink: 0;
+}
+.whatsapp-float .wa-btn svg {
+    width: 32px;
+    height: 32px;
+    fill: #fff;
+}
+.whatsapp-float .wa-badge {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    background: #e53935;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    animation: waBadgeBounce 1s ease 2s infinite;
+}
+@keyframes waPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.55); }
+    70%  { box-shadow: 0 0 0 16px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+}
+@keyframes waBubblePop {
+    from { opacity: 0; transform: scale(0.8) translateX(10px); }
+    to   { opacity: 1; transform: scale(1) translateX(0); }
+}
+@keyframes waBadgeBounce {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.25); }
+}
+@media (max-width: 480px) {
+    .whatsapp-float { bottom: 18px; right: 16px; }
+    .whatsapp-float .wa-bubble { display: none; }
+}
+</style>
+<a class="whatsapp-float" href="https://wa.me/5561982290919?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Amei%20Cosm%C3%A9ticos%20e%20quero%20saber%20mais!" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
+    <span class="wa-bubble">Olá, como posso ajudar? 👋</span>
+    <span class="wa-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path d="M16 0C7.163 0 0 7.163 0 16c0 2.822.736 5.469 2.027 7.77L0 32l8.437-2.007A15.934 15.934 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.333a13.28 13.28 0 0 1-6.771-1.845l-.485-.288-5.007 1.192 1.23-4.882-.317-.502A13.267 13.267 0 0 1 2.667 16C2.667 8.636 8.636 2.667 16 2.667S29.333 8.636 29.333 16 23.364 29.333 16 29.333zm7.27-9.986c-.398-.199-2.354-1.162-2.72-1.294-.365-.133-.631-.199-.897.199-.265.398-1.029 1.294-1.261 1.56-.232.265-.465.298-.863.1-.398-.199-1.681-.62-3.202-1.977-1.183-1.056-1.982-2.361-2.214-2.759-.232-.398-.025-.613.174-.811.179-.179.398-.465.597-.698.199-.232.265-.398.398-.664.133-.265.066-.498-.033-.697-.1-.199-.897-2.162-1.229-2.96-.324-.777-.653-.672-.897-.684l-.764-.013c-.265 0-.697.1-.1062.498-.365.398-1.395 1.362-1.395 3.322s1.428 3.853 1.627 4.119c.199.265 2.811 4.291 6.812 6.021.952.411 1.695.657 2.274.841.955.304 1.825.261 2.513.158.767-.114 2.354-.962 2.686-1.891.332-.93.332-1.727.232-1.891-.099-.165-.365-.265-.763-.464z"/></svg>
+        <span class="wa-badge">1</span>
+    </span>
+</a>
 </body>
 </html>

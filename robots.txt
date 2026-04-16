@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /uploads/
+
+# Sitemaps
+Sitemap: https://ameicosmeticos.com.br/sitemap.xml
