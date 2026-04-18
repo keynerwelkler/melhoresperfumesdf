@@ -67,6 +67,45 @@
 </script>
 
 				<link id="wsite-base-style" rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/sitesd186.css?buildTime=1234" />
+<!-- ═══ MENU TESTE — remover este bloco para voltar ao original ═══ -->
+<style>
+.paris-header {
+    background: rgba(10,10,10,0.96) !important;
+    border-top: none !important;
+    border-bottom: 1px solid rgba(255,131,69,0.25) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+.paris-header .container { display: flex !important; align-items: center !important; padding: 0 32px !important; min-height: 68px !important; }
+.paris-header .logo { display: flex !important; align-items: center !important; }
+.desktop-nav { display: flex !important; align-items: center !important; }
+.desktop-nav ul { float: none !important; display: flex !important; align-items: center !important; gap: 4px !important; margin: 0 !important; padding: 0 !important; }
+.desktop-nav ul li { float: none !important; }
+.desktop-nav ul li a {
+    color: rgba(255,255,255,0.8) !important;
+    font-family: 'Inter', 'Lato', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    padding: 13px 22px !important;
+    border-radius: 50px !important;
+    background: transparent !important;
+    transition: all .25s ease !important;
+    border: 1px solid transparent !important;
+}
+.desktop-nav ul li a:hover { color: #fff !important; background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.15) !important; }
+.desktop-nav ul li#pg_cadastro a {
+    background: linear-gradient(135deg, #ff8345, #e05000) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 16px rgba(255,131,69,0.4) !important;
+    font-weight: 700 !important;
+    padding: 9px 22px !important;
+}
+.desktop-nav ul li#pg_cadastro a:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 24px rgba(255,131,69,0.55) !important; }
+</style>
+<!-- ═══ FIM MENU TESTE ═══════════════════════════════════════════════════ -->
 <link rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/old/fancybox81dc.css?1234" />
 <link rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/social-icons4315.css?buildtime=1234" media="screen,projection" />
 <link rel="stylesheet" type="text/css" href="files/main_stylecadd.css?1648036543" title="wsite-theme-css" />
@@ -168,7 +207,6 @@ var STYLE_PREFIX = 'wsite';
 	      <div class="nav desktop-nav">
 	        <ul class="wsite-menu-default">
 	          <li id="active" class="wsite-menu-item-wrap"><a href="index.php" class="wsite-menu-item">In&iacute;cio</a></li>
-	          <li id="pg_consultor" class="wsite-menu-item-wrap"><a href="revendedor.php" class="wsite-menu-item">Quero ser Consultor(a)</a></li>
 	          <li id="pg_cadastro" class="wsite-menu-item-wrap"><a href="cadastro.php" class="wsite-menu-item">Cadastro</a></li>
             </ul>
           </div>
@@ -263,7 +301,6 @@ var STYLE_PREFIX = 'wsite';
 	<div class="nav mobile-nav"> <a class="hamburger" aria-label="Menu" href="#"><span></span></a>
 	  <ul class="wsite-menu-default">
 	    <li id="active3" class="wsite-menu-item-wrap"><a href="index.php" class="wsite-menu-item">In&iacute;cio</a></li>
-        <li id="pg_consultor2" class="wsite-menu-item-wrap"><a href="revendedor.php" class="wsite-menu-item">Quero ser Consultor(a)</a></li>
         <li id="pg_cadastro2" class="wsite-menu-item-wrap"><a href="cadastro.php" class="wsite-menu-item">Cadastro</a></li>
 	  </ul>
     </div>

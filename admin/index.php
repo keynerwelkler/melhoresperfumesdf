@@ -497,8 +497,7 @@ function abrirModal(id) {
 
                 '<div class="modal-secao">📞 Contato</div>' +
                 linha('E-mail', l.email) +
-                linha('Celular', l.celular) +
-                linha('Telefone', l.telefone) +
+                linha('Celular / WhatsApp', l.celular) +
 
                 '<div class="modal-secao">📝 Observação</div>' +
                 '<textarea class="obs-area" id="obsArea" placeholder="Adicione uma observação sobre este lead...">' + (l.observacao || '') + '</textarea>' +

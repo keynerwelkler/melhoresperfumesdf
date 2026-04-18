@@ -1,17 +1,30 @@
 <?php
 // ── Conexão com o banco ───────────────────────────────────────────────────────
-$dbErro = $dbSucesso = '';
+$dbErro = '';
 
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'ameicosmeticos');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+$_dbHost = 'localhost';
+$_host   = strtolower(preg_replace('/:\d+$/', '', (string)($_SERVER['HTTP_HOST'] ?? $_SERVER['SERVER_NAME'] ?? '')));
+$_addr   = $_SERVER['SERVER_ADDR'] ?? '';
+$_isLocal = in_array($_host, ['localhost','127.0.0.1'], true)
+          || in_array($_addr, ['127.0.0.1','::1'], true)
+          || PHP_SAPI === 'cli';
+
+if ($_isLocal) {
+    $_dbName = 'ameicosmeticos';
+    $_dbUser = 'root';
+    $_dbPass = '';
+} else {
+    $_dbName = 'oseiasmilton_ameicosmeticos';
+    $_dbUser = 'oseiasmilton_ameicosmeticos';
+    $_dbPass = 'xMstkPqkzQNysNAbzQUh';
+}
 
 try {
     $pdo = new PDO(
-        "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4",
-        DB_USER, DB_PASS,
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
+        "mysql:host={$_dbHost};dbname={$_dbName};charset=utf8mb4",
+        $_dbUser, $_dbPass,
+        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+         PDO::ATTR_EMULATE_PREPARES => false]
     );
 
     // Garante que a tabela existe (igual ao admin/config.php)
@@ -33,14 +46,35 @@ try {
 
 } catch (PDOException $e) {
     $pdo = null;
+    $dbErro = 'Erro de conexão com o banco de dados. Tente novamente em instantes.';
+    // Para depuração — remova após resolver em produção:
+    // $dbErro .= ' (' . $e->getMessage() . ')';
+}
+
+// ── Funções de validação ──────────────────────────────────────────────────────
+function validarCPF(string $cpf): bool {
+    $cpf = preg_replace('/\D/', '', $cpf);
+    if (strlen($cpf) !== 11 || preg_match('/^(\d)\1{10}$/', $cpf)) return false;
+    for ($t = 9; $t < 11; $t++) {
+        $d = 0;
+        for ($c = 0; $c < $t; $c++) $d += (int)$cpf[$c] * ($t + 1 - $c);
+        $d = ((10 * $d) % 11) % 10;
+        if ((int)$cpf[$c] !== $d) return false;
+    }
+    return true;
+}
+
+function validarCelular(string $cel): bool {
+    $cel = preg_replace('/\D/', '', $cel);
+    return strlen($cel) === 11 && $cel[2] === '9';
 }
 
 // ── Processar formulário ──────────────────────────────────────────────────────
+$d = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $campos = ['nome','sexo','cpf','rg','data_nascimento','cnpj','razao_social',
                'cep','logradouro','numero','complemento','bairro','cidade','uf',
-               'email','celular','telefone','login','senha','senha_confirm',
-               'tipo_pessoa','patrocinador'];
+               'email','celular','login','senha','senha_confirm','tipo_pessoa'];
     $d = [];
     foreach ($campos as $c) $d[$c] = trim($_POST[$c] ?? '');
 
@@ -48,7 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
     $erros = [];
     if (!$d['nome'])         $erros[] = 'Informe o Nome Completo.';
     if (!$d['email'])        $erros[] = 'Informe o E-mail.';
-    if (!$d['celular'])      $erros[] = 'Informe o Celular.';
+    if (!$d['celular'])      $erros[] = 'Informe o Celular / WhatsApp.';
+    elseif (!validarCelular($d['celular'])) $erros[] = 'Celular inválido. Informe um número de celular com DDD (ex: 61 9 8229-0919).';
+    if (!$d['cpf'])          $erros[] = 'Informe o CPF.';
+    elseif (!validarCPF($d['cpf'])) $erros[] = 'CPF inválido. Verifique o número informado.';
     if (!$d['login'])        $erros[] = 'Informe o Login desejado.';
     if (!$d['senha'])        $erros[] = 'Informe a Senha.';
     if (strlen($d['senha']) < 6) $erros[] = 'A senha deve ter mínimo 6 caracteres.';
@@ -67,23 +104,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
         $hash = password_hash($d['senha'], PASSWORD_DEFAULT);
         $stmt = $pdo->prepare("
             INSERT INTO leads
-            (patrocinador, nome_patrocinador, tipo_pessoa, nome, sexo, cpf, rg, data_nascimento,
+            (tipo_pessoa, nome, sexo, cpf, rg, data_nascimento,
              cnpj, razao_social, cep, logradouro, numero, complemento, bairro, cidade, uf,
-             email, celular, telefone, login, senha_hash)
-            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+             email, celular, login, senha_hash)
+            VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
         ");
         $stmt->execute([
-            $d['patrocinador'] ?: 'oseiaswgi',
-            'OSEIAS MILTON NERY DE FREITAS',
             $d['tipo_pessoa'] ?: 'fisica',
             $d['nome'], $d['sexo'], $d['cpf'], $d['rg'], $d['data_nascimento'],
             $d['cnpj'], $d['razao_social'],
             $d['cep'], $d['logradouro'], $d['numero'], $d['complemento'],
             $d['bairro'], $d['cidade'], $d['uf'],
-            $d['email'], $d['celular'], $d['telefone'],
+            $d['email'], $d['celular'],
             $d['login'], $hash
         ]);
-        $dbSucesso = 'Cadastro realizado com sucesso! Em breve entraremos em contato, ' . htmlspecialchars(explode(' ', $d['nome'])[0]) . '!';
+
+        // ── Notificação por e-mail ────────────────────────────────────────────
+        $enderecoCompleto = trim(implode(', ', array_filter([
+            $d['logradouro'], $d['numero'], $d['complemento'],
+            $d['bairro'], $d['cidade'], $d['uf'], $d['cep']
+        ])));
+
+        $corpoEmail = "Nova inscrição recebida no site Amei Cosméticos!\r\n";
+        $corpoEmail .= str_repeat("=", 50) . "\r\n\r\n";
+        $corpoEmail .= "DADOS PESSOAIS\r\n";
+        $corpoEmail .= "Nome completo : " . $d['nome']            . "\r\n";
+        $corpoEmail .= "Sexo          : " . $d['sexo']            . "\r\n";
+        $corpoEmail .= "CPF           : " . $d['cpf']             . "\r\n";
+        $corpoEmail .= "RG            : " . $d['rg']              . "\r\n";
+        $corpoEmail .= "Nascimento    : " . $d['data_nascimento']  . "\r\n\r\n";
+        $corpoEmail .= "CONTATO\r\n";
+        $corpoEmail .= "E-mail        : " . $d['email']           . "\r\n";
+        $corpoEmail .= "Celular/WPP   : " . $d['celular']         . "\r\n\r\n";
+        $corpoEmail .= "ENDEREÇO\r\n";
+        $corpoEmail .= $enderecoCompleto . "\r\n\r\n";
+        $corpoEmail .= "CONTA\r\n";
+        $corpoEmail .= "Login         : " . $d['login']           . "\r\n\r\n";
+        $corpoEmail .= str_repeat("=", 50) . "\r\n";
+        $corpoEmail .= "Acesse o painel: https://www.melhoresperfumesdf.com.br/admin/\r\n";
+
+        $cabecalhos  = "From: noreply@melhoresperfumesdf.com.br\r\n";
+        $cabecalhos .= "Reply-To: " . $d['email'] . "\r\n";
+        $cabecalhos .= "Content-Type: text/plain; charset=UTF-8\r\n";
+        $cabecalhos .= "X-Mailer: PHP/" . phpversion();
+
+        $assunto = '=?UTF-8?B?' . base64_encode('🔔 Novo Cadastro: ' . $d['nome']) . '?=';
+        @mail('oseiascw@gmail.com',       $assunto, $corpoEmail, $cabecalhos);
+        @mail('kew.welkler@hotmail.com',  $assunto, $corpoEmail, $cabecalhos);
+        // ─────────────────────────────────────────────────────────────────────
+
+        $primeiroNome = htmlspecialchars(explode(' ', $d['nome'])[0]);
+        header('Location: obrigado.php?nome=' . urlencode($primeiroNome));
+        exit;
     }
 }
 ?>
@@ -129,6 +201,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 </script>
 
 	<link id="wsite-base-style" rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/sitesd186.css?buildTime=1234" />
+<!-- ═══ MENU TESTE — remover este bloco para voltar ao original ═══ -->
+<style>
+.paris-header {
+    background: rgba(10,10,10,0.96) !important;
+    border-top: none !important;
+    border-bottom: 1px solid rgba(255,131,69,0.25) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+.paris-header .container { display: flex !important; align-items: center !important; padding: 0 32px !important; min-height: 68px !important; }
+.paris-header .logo { display: flex !important; align-items: center !important; }
+.desktop-nav { display: flex !important; align-items: center !important; }
+.desktop-nav ul { float: none !important; display: flex !important; align-items: center !important; gap: 4px !important; margin: 0 !important; padding: 0 !important; }
+.desktop-nav ul li { float: none !important; }
+.desktop-nav ul li a {
+    color: rgba(255,255,255,0.8) !important;
+    font-family: 'Inter', 'Lato', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    padding: 13px 22px !important;
+    border-radius: 50px !important;
+    background: transparent !important;
+    transition: all .25s ease !important;
+    border: 1px solid transparent !important;
+}
+.desktop-nav ul li a:hover { color: #fff !important; background: rgba(255,255,255,0.08) !important; border-color: rgba(255,255,255,0.15) !important; }
+.desktop-nav ul li#pg_cadastro a {
+    background: linear-gradient(135deg, #ff8345, #e05000) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 16px rgba(255,131,69,0.4) !important;
+    font-weight: 700 !important;
+    padding: 9px 22px !important;
+}
+.desktop-nav ul li#pg_cadastro a:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 24px rgba(255,131,69,0.55) !important; }
+</style>
+<!-- ═══ FIM MENU TESTE ═══════════════════════════════════════════════════ -->
 	<link rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/old/fancybox81dc.css?1234" />
 	<link rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/social-icons4315.css?buildtime=1234" media="screen,projection" />
 	<link rel="stylesheet" type="text/css" href="files/main_style9838.css?1646657415" title="wsite-theme-css" />
@@ -218,53 +329,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 	}
 	.form-group input::placeholder { color: #aaa; }
 
-	/* Patrocinador */
-	.patrocinador-row {
-		display: flex;
-		gap: 12px;
-		align-items: flex-end;
-		margin-bottom: 16px;
-		flex-wrap: wrap;
-	}
-	.patrocinador-row .form-group { flex: 1; min-width: 160px; }
-	.patrocinador-row .form-group.nome { flex: 2; }
-	.btn-pesquisar {
-		padding: 10px 22px;
-		background: #ff8345;
-		color: #fff;
-		border: none;
-		border-radius: 4px;
-		font-size: 14px;
-		font-weight: 600;
-		cursor: pointer;
-		white-space: nowrap;
-		height: 42px;
-		align-self: flex-end;
-		transition: background .2s;
-	}
-	.btn-pesquisar:hover { background: #e06a2a; }
 
-	/* Radio */
-	.radio-group {
-		display: flex;
-		gap: 24px;
-		margin-bottom: 20px;
-		align-items: center;
-	}
-	.radio-group label {
-		display: flex;
-		align-items: center;
-		gap: 6px;
-		font-size: 14px;
-		font-weight: 500;
-		color: #333;
-		cursor: pointer;
-	}
-	.radio-group input[type="radio"] {
-		accent-color: #ff8345;
-		width: 16px;
-		height: 16px;
-	}
 
 	/* Senha toggle */
 	.senha-wrapper {
@@ -322,18 +387,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 		font-size: 14px;
 		display: none;
 	}
-	.msg-sucesso {
-		background: #eafaf1;
-		color: #1e8449;
-		border: 1px solid #a9dfbf;
-		border-radius: 4px;
-		padding: 14px 16px;
-		margin-bottom: 20px;
-		font-size: 14px;
-		display: none;
-		text-align: center;
-	}
-
 	@media (max-width: 600px) {
 		.cadastro-wrap { padding: 24px 18px; margin: 20px 12px 40px; }
 		.patrocinador-row { flex-direction: column; }
@@ -359,9 +412,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 			<div class="nav desktop-nav"><ul class="wsite-menu-default">
 				<li class="wsite-menu-item-wrap">
 					<a href="index.php" class="wsite-menu-item">In&iacute;cio</a>
-				</li>
-				<li class="wsite-menu-item-wrap">
-					<a href="revendedor.php" class="wsite-menu-item">Quero ser Consultor(a)</a>
 				</li>
 				<li id="active" class="wsite-menu-item-wrap">
 					<a href="cadastro.php" class="wsite-menu-item">Cadastro</a>
@@ -393,74 +443,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 						<div class="msg-erro" id="msgErro"></div>
 						<?php endif; ?>
 
-						<?php if ($dbSucesso): ?>
-						<div class="msg-sucesso" id="msgSucesso" style="display:block;"><?= $dbSucesso ?></div>
-						<?php else: ?>
-						<div class="msg-sucesso" id="msgSucesso"></div>
-						<?php endif; ?>
+						<form id="formCadastro" method="POST" action="cadastro.php">
 
-						<form id="formCadastro" method="POST" action="cadastro.php" <?= $dbSucesso ? 'style="display:none"' : '' ?>>
-
-							<!-- PATROCINADOR -->
-							<h2>Patrocinador</h2>
-							<div class="patrocinador-row">
-								<div class="form-group">
-									<label for="patrocinador">Informe o patrocinador:</label>
-									<input type="text" id="patrocinador" name="patrocinador" value="oseiaswgi" readonly />
-								</div>
-								<button type="button" class="btn-pesquisar" onclick="buscarPatrocinador()">Pesquisar</button>
-								<div class="form-group nome">
-									<label for="nomePatrocinador">Nome do Patrocinador</label>
-									<input type="text" id="nomePatrocinador" name="nome_patrocinador" value="OSEIAS MILTON NERY DE FREITAS" readonly />
-								</div>
-							</div>
-
-							<!-- TIPO DE PESSOA -->
-							<div class="radio-group">
-								<label><input type="radio" name="tipo_pessoa" value="fisica" checked onchange="alternarTipo(this)"> Pessoa F&iacute;sica</label>
-								<label><input type="radio" name="tipo_pessoa" value="juridica" onchange="alternarTipo(this)"> Pessoa Jur&iacute;dica</label>
-							</div>
+							<input type="hidden" name="tipo_pessoa" value="fisica" />
 
 							<!-- DADOS PESSOAIS -->
 							<h2>Dados Pessoais</h2>
 							<div class="form-row">
 								<div class="form-group" style="flex:3;">
 									<label for="nomeCompleto">Nome Completo <span class="req">*</span></label>
-									<input type="text" id="nomeCompleto" name="nome" placeholder="Ex: Maria da Silva" required />
+									<input type="text" id="nomeCompleto" name="nome" placeholder="Ex: Maria da Silva" required value="<?= htmlspecialchars($d['nome'] ?? '') ?>" />
 								</div>
 								<div class="form-group" style="flex:1;min-width:130px;">
 									<label for="sexo">Sexo <span class="req">*</span></label>
 									<select id="sexo" name="sexo" required>
 										<option value="">Selecione</option>
-										<option value="F" selected>Feminino</option>
-										<option value="M">Masculino</option>
+										<option value="F" <?= ($d['sexo'] ?? 'F') === 'F' ? 'selected' : '' ?>>Feminino</option>
+										<option value="M" <?= ($d['sexo'] ?? '') === 'M' ? 'selected' : '' ?>>Masculino</option>
 									</select>
 								</div>
 							</div>
 
-							<div class="form-row" id="campos-fisica">
+							<div class="form-row">
 								<div class="form-group">
 									<label for="cpf">CPF <span class="req">*</span></label>
-									<input type="text" id="cpf" name="cpf" placeholder="Ex: 123.456.789-01" maxlength="14" required />
+									<input type="text" id="cpf" name="cpf" placeholder="Ex: 123.456.789-01" maxlength="14" required value="<?= htmlspecialchars($d['cpf'] ?? '') ?>" />
+									<span id="cpf-erro" style="display:none;color:#c0392b;font-size:12px;margin-top:4px;">CPF inválido</span>
 								</div>
 								<div class="form-group">
 									<label for="rg">RG <span class="req">*</span></label>
-									<input type="text" id="rg" name="rg" placeholder="Informe seu RG" required />
+									<input type="text" id="rg" name="rg" placeholder="Informe seu RG" required value="<?= htmlspecialchars($d['rg'] ?? '') ?>" />
 								</div>
 								<div class="form-group">
 									<label for="dataNasc">Data de Nascimento <span class="req">*</span></label>
-									<input type="text" id="dataNasc" name="data_nascimento" placeholder="Ex: 01/01/2000" maxlength="10" required />
-								</div>
-							</div>
-
-							<div class="form-row" id="campos-juridica" style="display:none;">
-								<div class="form-group">
-									<label for="cnpj">CNPJ <span class="req">*</span></label>
-									<input type="text" id="cnpj" name="cnpj" placeholder="Ex: 00.000.000/0001-00" maxlength="18" />
-								</div>
-								<div class="form-group">
-									<label for="razaoSocial">Raz&atilde;o Social <span class="req">*</span></label>
-									<input type="text" id="razaoSocial" name="razao_social" placeholder="Raz&atilde;o Social da empresa" />
+									<input type="text" id="dataNasc" name="data_nascimento" placeholder="Ex: 01/01/2000" maxlength="10" required value="<?= htmlspecialchars($d['data_nascimento'] ?? '') ?>" />
 								</div>
 							</div>
 
@@ -469,33 +485,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 							<div class="form-row">
 								<div class="form-group" style="max-width:200px;">
 									<label for="cep">CEP <span class="req">*</span></label>
-									<input type="text" id="cep" name="cep" placeholder="Ex: 13606-238" maxlength="9" required />
+									<input type="text" id="cep" name="cep" placeholder="Ex: 13606-238" maxlength="9" required value="<?= htmlspecialchars($d['cep'] ?? '') ?>" />
 								</div>
 								<div class="form-group" style="flex:2;">
 									<label for="logradouro">Logradouro</label>
-									<input type="text" id="logradouro" name="logradouro" placeholder="Rua, Avenida..." readonly />
+									<input type="text" id="logradouro" name="logradouro" placeholder="Rua, Avenida..." readonly value="<?= htmlspecialchars($d['logradouro'] ?? '') ?>" />
 								</div>
 								<div class="form-group" style="max-width:120px;">
 									<label for="numero">N&uacute;mero <span class="req">*</span></label>
-									<input type="text" id="numero" name="numero" placeholder="N&ordm;" required />
+									<input type="text" id="numero" name="numero" placeholder="N&ordm;" required value="<?= htmlspecialchars($d['numero'] ?? '') ?>" />
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group">
 									<label for="complemento">Complemento</label>
-									<input type="text" id="complemento" name="complemento" placeholder="Apto, Bloco..." />
+									<input type="text" id="complemento" name="complemento" placeholder="Apto, Bloco..." value="<?= htmlspecialchars($d['complemento'] ?? '') ?>" />
 								</div>
 								<div class="form-group">
 									<label for="bairro">Bairro</label>
-									<input type="text" id="bairro" name="bairro" placeholder="Bairro" readonly />
+									<input type="text" id="bairro" name="bairro" placeholder="Bairro" readonly value="<?= htmlspecialchars($d['bairro'] ?? '') ?>" />
 								</div>
 								<div class="form-group">
 									<label for="cidade">Cidade</label>
-									<input type="text" id="cidade" name="cidade" placeholder="Cidade" readonly />
+									<input type="text" id="cidade" name="cidade" placeholder="Cidade" readonly value="<?= htmlspecialchars($d['cidade'] ?? '') ?>" />
 								</div>
 								<div class="form-group" style="max-width:90px;">
 									<label for="uf">UF</label>
-									<input type="text" id="uf" name="uf" placeholder="UF" readonly maxlength="2" />
+									<input type="text" id="uf" name="uf" placeholder="UF" readonly maxlength="2" value="<?= htmlspecialchars($d['uf'] ?? '') ?>" />
 								</div>
 							</div>
 
@@ -504,17 +520,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 							<div class="form-row">
 								<div class="form-group full">
 									<label for="email">Email <span class="req">*</span></label>
-									<input type="email" id="email" name="email" placeholder="Ex. ameicosmeticos@gmail.com" required />
+									<input type="email" id="email" name="email" placeholder="Ex. ameicosmeticos@gmail.com" required value="<?= htmlspecialchars($d['email'] ?? '') ?>" />
 								</div>
 							</div>
 							<div class="form-row">
 								<div class="form-group">
-									<label for="celular">Celular <span class="req">*</span></label>
-									<input type="text" id="celular" name="celular" placeholder="Ex: (99) 9 1234-5678" maxlength="16" required />
-								</div>
-								<div class="form-group">
-									<label for="telefone">Telefone</label>
-									<input type="text" id="telefone" name="telefone" placeholder="Ex: (99) 1234-5678" maxlength="15" />
+									<label for="celular">Celular / WhatsApp <span class="req">*</span></label>
+									<input type="text" id="celular" name="celular" placeholder="Ex: (99) 9 1234-5678" maxlength="16" required value="<?= htmlspecialchars($d['celular'] ?? '') ?>" />
+									<span id="celular-erro" style="display:none;color:#c0392b;font-size:12px;margin-top:4px;">Número inválido. Informe um celular com DDD.</span>
 								</div>
 							</div>
 
@@ -523,7 +536,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 							<div class="form-row">
 								<div class="form-group full">
 									<label for="login">Login <span class="req">*</span></label>
-									<input type="text" id="login" name="login" placeholder="Informe seu login" required />
+									<input type="text" id="login" name="login" placeholder="Informe seu login" required value="<?= htmlspecialchars($d['login'] ?? '') ?>" />
 									<div class="login-info">
 										* O login escolhido <strong>n&atilde;o poder&aacute; ser alterado</strong> posteriormente<br>
 										** Este login ser&aacute; utilizado para acessar sua loja/site personalizada(o)<br>
@@ -599,7 +612,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 <div class="nav mobile-nav"> <a class="hamburger" aria-label="Menu" href="#"><span></span></a>
 	<ul class="wsite-menu-default">
 		<li class="wsite-menu-item-wrap"><a href="index.php" class="wsite-menu-item">In&iacute;cio</a></li>
-		<li class="wsite-menu-item-wrap"><a href="revendedor.php" class="wsite-menu-item">Quero ser Consultor(a)</a></li>
 		<li id="active" class="wsite-menu-item-wrap"><a href="cadastro.php" class="wsite-menu-item">Cadastro</a></li>
 	</ul>
 </div>
@@ -616,27 +628,41 @@ function toggleSenha(id, el) {
 }
 
 // ── Alternar campos PF / PJ ─────────────────────────────────────────────────
-function alternarTipo(radio) {
-	document.getElementById('campos-fisica').style.display  = radio.value === 'fisica'   ? 'flex' : 'none';
-	document.getElementById('campos-juridica').style.display = radio.value === 'juridica' ? 'flex' : 'none';
-}
 
-// ── Busca patrocinador (fixo por enquanto) ──────────────────────────────────
-function buscarPatrocinador() {
-	var cod = document.getElementById('patrocinador').value.trim();
-	if (!cod) { alert('Informe o código do patrocinador.'); return; }
-	// Patrocinador fixo para este link de consultor
-	document.getElementById('nomePatrocinador').value = 'OSEIAS MILTON NERY DE FREITAS';
+// ── Máscara + validação CPF ──────────────────────────────────────────────────
+function validarCPFjs(cpf) {
+	cpf = cpf.replace(/\D/g, '');
+	if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+	for (var t = 9; t < 11; t++) {
+		var d = 0;
+		for (var c = 0; c < t; c++) d += parseInt(cpf[c]) * (t + 1 - c);
+		d = ((10 * d) % 11) % 10;
+		if (parseInt(cpf[c]) !== d) return false;
+	}
+	return true;
 }
-
-// ── Máscara CPF ─────────────────────────────────────────────────────────────
+function checarCPF() {
+	var v = document.getElementById('cpf').value;
+	var erro = document.getElementById('cpf-erro');
+	var digits = v.replace(/\D/g,'');
+	if (digits.length > 0) {
+		erro.style.display = (digits.length === 11 && validarCPFjs(digits)) ? 'none' : 'block';
+	} else {
+		erro.style.display = 'none';
+	}
+}
 document.getElementById('cpf').addEventListener('input', function() {
 	var v = this.value.replace(/\D/g,'');
 	v = v.replace(/(\d{3})(\d)/,'$1.$2');
 	v = v.replace(/(\d{3})(\d)/,'$1.$2');
 	v = v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');
 	this.value = v;
+	// Só mostra erro durante digitação se já completou os 11 dígitos
+	var digits = v.replace(/\D/g,'');
+	if (digits.length === 11) checarCPF();
+	else document.getElementById('cpf-erro').style.display = 'none';
 });
+document.getElementById('cpf').addEventListener('blur', checarCPF);
 
 // ── Máscara Data ────────────────────────────────────────────────────────────
 document.getElementById('dataNasc').addEventListener('input', function() {
@@ -668,21 +694,28 @@ function buscarCEP(cep) {
 		}).catch(function(){});
 }
 
-// ── Máscara Celular ─────────────────────────────────────────────────────────
+// ── Máscara + validação Celular / WhatsApp ───────────────────────────────────
+function checarCelular() {
+	var v = document.getElementById('celular').value;
+	var erro = document.getElementById('celular-erro');
+	var digits = v.replace(/\D/g,'');
+	if (digits.length > 0) {
+		erro.style.display = (digits.length === 11 && digits[2] === '9') ? 'none' : 'block';
+	} else {
+		erro.style.display = 'none';
+	}
+}
 document.getElementById('celular').addEventListener('input', function() {
 	var v = this.value.replace(/\D/g,'');
 	v = v.replace(/^(\d{2})(\d)/,'($1) $2');
 	v = v.replace(/(\d{5})(\d)/,'$1-$2');
 	this.value = v;
+	// Só mostra erro durante digitação se já completou os 11 dígitos
+	var digits = this.value.replace(/\D/g,'');
+	if (digits.length === 11) checarCelular();
+	else document.getElementById('celular-erro').style.display = 'none';
 });
-
-// ── Máscara Telefone ────────────────────────────────────────────────────────
-document.getElementById('telefone').addEventListener('input', function() {
-	var v = this.value.replace(/\D/g,'');
-	v = v.replace(/^(\d{2})(\d)/,'($1) $2');
-	v = v.replace(/(\d{4})(\d)/,'$1-$2');
-	this.value = v;
-});
+document.getElementById('celular').addEventListener('blur', checarCelular);
 
 // ── Validação client-side antes de enviar ───────────────────────────────────
 document.getElementById('formCadastro').addEventListener('submit', function(e) {
@@ -696,9 +729,16 @@ document.getElementById('formCadastro').addEventListener('submit', function(e) {
 
 	erro.style.display = 'none';
 
+	var cpf   = document.getElementById('cpf').value.trim();
+	var cpfDigits = cpf.replace(/\D/g,'');
+
 	if (!nome)               { e.preventDefault(); mostrarErro(erro, 'Informe o Nome Completo.'); return; }
 	if (!email)              { e.preventDefault(); mostrarErro(erro, 'Informe o E-mail.'); return; }
-	if (!cel)                { e.preventDefault(); mostrarErro(erro, 'Informe o Celular.'); return; }
+	if (!cpf)                { e.preventDefault(); mostrarErro(erro, 'Informe o CPF.'); return; }
+	if (!validarCPFjs(cpfDigits)) { e.preventDefault(); mostrarErro(erro, 'CPF inválido. Verifique o número informado.'); return; }
+	if (!cel)                { e.preventDefault(); mostrarErro(erro, 'Informe o Celular / WhatsApp.'); return; }
+	var celDigits = cel.replace(/\D/g,'');
+	if (celDigits.length !== 11 || celDigits[2] !== '9') { e.preventDefault(); mostrarErro(erro, 'Celular inválido. Informe um número com DDD (ex: 61 9 8229-0919).'); return; }
 	if (!login)              { e.preventDefault(); mostrarErro(erro, 'Informe o Login desejado.'); return; }
 	if (!senha)              { e.preventDefault(); mostrarErro(erro, 'Informe a Senha.'); return; }
 	if (senha.length < 6)    { e.preventDefault(); mostrarErro(erro, 'A senha deve ter mínimo 6 caracteres.'); return; }

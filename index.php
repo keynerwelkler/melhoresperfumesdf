@@ -117,6 +117,84 @@
 </script>
 
 				<link id="wsite-base-style" rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/sitesd186.css?buildTime=1234" />
+<!-- ═══ MENU TESTE — remover este bloco para voltar ao original ═══ -->
+<style>
+/* Barra do header */
+.paris-header {
+    background: rgba(10,10,10,0.96) !important;
+    border-top: none !important;
+    border-bottom: 1px solid rgba(255,131,69,0.25) !important;
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+}
+
+/* Container alinhamento */
+.paris-header .container {
+    display: flex !important;
+    align-items: center !important;
+    padding: 0 32px !important;
+}
+.paris-header .logo { display: flex !important; align-items: center !important; }
+
+/* Nav à esquerda */
+.desktop-nav { display: flex !important; align-items: center !important; }
+.desktop-nav ul {
+    float: none !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.desktop-nav ul li { float: none !important; }
+
+/* Links base */
+.paris-header .container { min-height: 68px !important; }
+
+.desktop-nav ul li a {
+    color: rgba(255,255,255,0.8) !important;
+    font-family: 'Inter', 'Lato', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    padding: 13px 22px !important;
+    border-radius: 50px !important;
+    background: transparent !important;
+    transition: all .25s ease !important;
+    border: 1px solid transparent !important;
+}
+
+/* Hover link simples */
+.desktop-nav ul li a:hover {
+    color: #fff !important;
+    background: rgba(255,255,255,0.08) !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+
+/* Item ativo */
+.desktop-nav ul li#active a {
+    color: rgba(255,255,255,0.75) !important;
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+/* Botão Cadastro — destaque laranja */
+.desktop-nav ul li#pg_cadastro a {
+    background: linear-gradient(135deg, #ff8345, #e05000) !important;
+    color: #fff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 16px rgba(255,131,69,0.4) !important;
+    font-weight: 700 !important;
+    padding: 9px 22px !important;
+}
+.desktop-nav ul li#pg_cadastro a:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(255,131,69,0.55) !important;
+    background: linear-gradient(135deg, #ff9555, #ff6010) !important;
+}
+</style>
+<!-- ═══ FIM MENU TESTE ═══════════════════════════════════════════════════ -->
 <link rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/old/fancybox81dc.css?1234" />
 <link rel="stylesheet" type="text/css" href="../cdn2.editmysite.com/css/social-icons4315.css?buildtime=1234" media="screen,projection" />
 <link rel="stylesheet" type="text/css" href="files/main_style9838.css?1646657415" title="wsite-theme-css" />
@@ -228,9 +306,6 @@ function initFlyouts(){
 	<li id="active" class="wsite-menu-item-wrap">
 		<a href="index.php" class="wsite-menu-item">In&iacute;cio</a>
 	</li>
-	<li id="pg_consultor" class="wsite-menu-item-wrap">
-		<a href="revendedor.php" class="wsite-menu-item">Quero ser Consultor(a)</a>
-	</li>
 	<li id="pg_cadastro" class="wsite-menu-item-wrap">
 		<a href="cadastro.php" class="wsite-menu-item">Cadastro</a>
 	</li>
@@ -238,6 +313,67 @@ function initFlyouts(){
 </div>
       </div><!-- end .container -->
 	  </div><!-- end .header -->
+
+<!-- ── TARJA TICKER ─────────────────────────────────────────────────────── -->
+<div class="amei-ticker-wrap">
+	<div class="amei-ticker-track">
+		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span class="amei-ticker-sep">✦</span>
+		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span class="amei-ticker-sep">✦</span>
+		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span class="amei-ticker-sep">✦</span>
+		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span class="amei-ticker-sep">✦</span>
+		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span class="amei-ticker-sep">✦</span>
+		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span class="amei-ticker-sep">✦</span>
+	</div>
+</div>
+<style>
+.amei-ticker-wrap {
+	width: 100%;
+	background: linear-gradient(90deg, #e05000 0%, #ff8345 40%, #ff6a1a 70%, #e05000 100%);
+	overflow: hidden;
+	padding: 13px 0;
+	box-shadow: 0 3px 18px rgba(224,80,0,0.45);
+	position: relative;
+	z-index: 100;
+	border-top: 2px solid rgba(255,255,255,0.2);
+	border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+.amei-ticker-track {
+	display: flex;
+	align-items: center;
+	gap: 0;
+	white-space: nowrap;
+	animation: tickerScroll 18s linear infinite;
+	width: max-content;
+}
+.amei-ticker-track span {
+	color: #fff;
+	font-size: 17px;
+	font-weight: 800;
+	letter-spacing: .5px;
+	text-transform: uppercase;
+	padding: 0 32px;
+	text-shadow: 0 1px 4px rgba(0,0,0,0.25);
+}
+.amei-ticker-sep {
+	color: rgba(255,255,255,0.6) !important;
+	font-size: 13px !important;
+	padding: 0 4px !important;
+}
+@keyframes tickerScroll {
+	0%   { transform: translateX(0); }
+	100% { transform: translateX(-50%); }
+}
+.amei-ticker-wrap:hover .amei-ticker-track {
+	animation-play-state: paused;
+}
+</style>
+<!-- ── FIM TARJA ──────────────────────────────────────────────────────────── -->
 
 		<div class="banner-wrap">
 			<div class="wsite-elements wsite-not-footer wsite-header-elements">
@@ -252,14 +388,23 @@ function initFlyouts(){
 	<table class="wsite-multicol-table">
 		<tbody class="wsite-multicol-tbody">
 			<tr class="wsite-multicol-tr">
-				<td class="wsite-multicol-col" style="width:26.188197158928%; padding:0 15px;">
-					
-						
+				<td class="wsite-multicol-col" style="width:35%; padding:0 15px; vertical-align:middle; text-align:center;">
 
-<div class="wsite-spacer" style="height:50px;"></div>
+<div class="amei-shorts-col">
+	<div class="amei-shorts-frame">
+		<iframe
+			src="https://www.youtube.com/embed/dqxNqhehyJQ?rel=0&modestbranding=1"
+			title="Amei Cosméticos — Oportunidade de Negócio"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen
+			loading="lazy">
+		</iframe>
+	</div>
+	<a href="cadastro.php" class="amei-btn-cta">
+		&#x25B6; Quero me cadastrar
+	</a>
+</div>
 
-
-					
 				</td>				<td class="wsite-multicol-col" style="width:31.459099417781%; padding:0 15px;">
 					
 						
@@ -284,12 +429,95 @@ de Alta Performance.</font></font></strong>
 
 
 					
-				</td>				<td class="wsite-multicol-col" style="width:42.352703423291%; padding:0 15px;">
-					
-						
+				</td>				<td class="wsite-multicol-col" style="width:30%; padding:0 15px;">
 
-<div class="wsite-spacer" style="height:50px;"></div>
+<div class="wsite-spacer" style="height:20px;"></div>
 
+<style>
+.amei-shorts-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+	padding: 30px 0 20px;
+	margin-right: 40px;
+}
+.amei-shorts-frame {
+	position: relative;
+	width: 290px;
+	border-radius: 18px;
+	overflow: hidden;
+	box-shadow: 0 10px 36px rgba(0,0,0,0.4);
+	border: 3px solid rgba(255,131,69,0.5);
+	background: #000;
+}
+.amei-shorts-frame::before {
+	content: '';
+	display: block;
+	padding-top: 177.78%;
+}
+.amei-shorts-frame iframe {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}
+.amei-btn-cta {
+	display: inline-flex;
+	align-items: center;
+	gap: 9px;
+	background: linear-gradient(135deg, #ff8345, #e05a10);
+	color: #fff !important;
+	font-size: 15px;
+	font-weight: 700;
+	padding: 13px 28px;
+	border-radius: 50px;
+	text-decoration: none !important;
+	box-shadow: 0 5px 20px rgba(255,131,69,0.55);
+	transition: transform .25s, box-shadow .25s;
+	animation: ctaPulse 2s ease-in-out infinite;
+}
+.amei-btn-cta:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 28px rgba(255,131,69,0.7);
+	color: #fff !important;
+	text-decoration: none !important;
+}
+@keyframes ctaPulse {
+	0%,100% { box-shadow: 0 5px 20px rgba(255,131,69,0.55); }
+	50%      { box-shadow: 0 5px 28px rgba(255,131,69,0.85); }
+}
+
+/* ── Mobile: mostra vídeo, esconde texto do banner ── */
+@media (max-width: 768px) {
+	/* transforma tabela em bloco */
+	.wsite-multicol-table,
+	.wsite-multicol-tbody,
+	.wsite-multicol-tr { display: block !important; width: 100% !important; }
+	.wsite-multicol-col { display: block !important; width: 100% !important; padding: 0 !important; box-sizing: border-box !important; }
+
+	/* coluna do vídeo: ocupa tudo, centralizado */
+	.wsite-multicol-col:has(.amei-shorts-col) {
+		display: flex !important;
+		justify-content: center !important;
+	}
+	.amei-shorts-col { display: flex !important; padding: 20px 0 10px !important; }
+	.amei-shorts-frame { width: min(280px, 80vw) !important; }
+
+	/* coluna do texto/logo: some no mobile */
+	.wsite-multicol-col:has(.imgPusher),
+	.wsite-multicol-col:has(span[style*="display: table"]) { display: none !important; }
+
+	/* coluna vazia da direita: some */
+	.wsite-multicol-col:last-child { display: none !important; }
+
+	/* evita corte de texto nas outras seções */
+	.wsite-section-elements { overflow: visible !important; }
+	.wsite-multicol-table-wrap { overflow: visible !important; }
+	pre { white-space: pre-wrap !important; word-break: break-word !important; }
+}
+</style>
 
 					
 				</td>			</tr>
@@ -1077,7 +1305,6 @@ de Alta Performance.</font></font></strong>
 		<div class="nav mobile-nav"> <a class="hamburger" aria-label="Menu" href="#"><span></span></a>
 	  <ul class="wsite-menu-default">
 	    <li id="active3" class="wsite-menu-item-wrap"><a href="index.php" class="wsite-menu-item">In&iacute;cio</a></li>
-        <li id="pg_consultor2" class="wsite-menu-item-wrap"><a href="revendedor.php" class="wsite-menu-item">Quero ser Consultor(a)</a></li>
         <li id="pg_cadastro2" class="wsite-menu-item-wrap"><a href="cadastro.php" class="wsite-menu-item">Cadastro</a></li>
 	  </ul>
     </div>
@@ -1169,6 +1396,229 @@ de Alta Performance.</font></font></strong>
         <span class="wa-badge">1</span>
     </span>
 </a>
+<!-- ── EXIT INTENT POPUP ─────────────────────────────────────────────────── -->
+<style>
+#exitModal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    align-items: center;
+    justify-content: center;
+}
+#exitModal.show { display: flex; }
+
+.exit-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(4px);
+    animation: overlayIn .3s ease both;
+}
+@keyframes overlayIn { from{opacity:0} to{opacity:1} }
+
+.exit-box {
+    position: relative;
+    z-index: 1;
+    background: #fff;
+    border-radius: 24px;
+    max-width: 520px;
+    width: calc(100% - 32px);
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    animation: boxIn .35s cubic-bezier(.34,1.56,.64,1) both;
+}
+@keyframes boxIn {
+    from { opacity:0; transform:scale(.85) translateY(30px); }
+    to   { opacity:1; transform:scale(1) translateY(0); }
+}
+
+/* topo laranja */
+.exit-top {
+    background: linear-gradient(135deg, #ff8345, #e05000);
+    padding: 22px 24px 18px;
+    text-align: center;
+    position: relative;
+}
+.exit-top .exit-emoji { font-size: 36px; display: block; margin-bottom: 6px; }
+.exit-top h2 {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.25;
+    margin: 0;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.exit-top h2 span { display: block; font-size: 17px; font-weight: 600; opacity: .9; margin-top: 4px; }
+
+.exit-btn-close {
+    position: absolute;
+    top: 12px; right: 14px;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    line-height: 1;
+    transition: background .2s;
+}
+.exit-btn-close:hover { background: rgba(255,255,255,0.35); }
+
+/* vídeo */
+.exit-video-wrap {
+    position: relative;
+    background: #000;
+}
+.exit-video-wrap::before {
+    content: '';
+    display: block;
+    padding-top: 56.25%;
+}
+.exit-video-wrap iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+}
+
+/* rodapé */
+.exit-bottom {
+    padding: 20px 24px 24px;
+    text-align: center;
+    background: #fafafa;
+}
+.exit-bottom p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+.exit-bottom p strong { color: #e05000; }
+
+.exit-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff8345, #e05000);
+    color: #fff !important;
+    font-size: 16px;
+    font-weight: 800;
+    padding: 15px 36px;
+    border-radius: 50px;
+    text-decoration: none !important;
+    box-shadow: 0 6px 24px rgba(255,131,69,0.5);
+    transition: transform .2s, box-shadow .2s;
+    letter-spacing: .3px;
+    text-transform: uppercase;
+}
+.exit-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(255,131,69,0.65);
+    color: #fff !important;
+}
+.exit-cta svg { width:18px; height:18px; fill:none; stroke:#fff; stroke-width:2.5; flex-shrink:0; }
+
+.exit-skip {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    color: #aaa;
+    cursor: pointer;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    padding: 0;
+}
+.exit-skip:hover { color: #888; }
+
+@media (max-width: 480px) {
+    .exit-top h2 { font-size: 18px; }
+    .exit-top h2 span { font-size: 14px; }
+    .exit-cta { font-size: 14px; padding: 13px 24px; }
+}
+</style>
+
+<div id="exitModal">
+    <div class="exit-overlay" onclick="fecharExit()"></div>
+    <div class="exit-box">
+        <div class="exit-top">
+            <button class="exit-btn-close" onclick="fecharExit()" aria-label="Fechar">✕</button>
+            <span class="exit-emoji">🚨</span>
+            <h2>
+                Você vai perder a chance de<br/>ganhar até 150% de lucro?
+                <span>Assista antes de sair — leva menos de 1 minuto!</span>
+            </h2>
+        </div>
+        <div class="exit-video-wrap">
+            <iframe id="exitIframe"
+                src=""
+                data-src="https://www.youtube.com/embed/dqxNqhehyJQ?autoplay=1&rel=0&modestbranding=1"
+                title="Amei Cosméticos — Oportunidade de Negócio"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+        <div class="exit-bottom">
+            <p>Fábrica própria, sem SPC e Serasa.<br/><strong>Cadastro 100% gratuito.</strong> Comece hoje mesmo!</p>
+            <a href="cadastro.php" class="exit-cta">
+                Quero me cadastrar agora
+                <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <button class="exit-skip" onclick="fecharExit()">Não, prefiro perder essa oportunidade</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    var shown = false;
+    var dismissed = false;
+
+    function mostrarExit() {
+        if (shown || dismissed) return;
+        shown = true;
+        // carrega o iframe só quando abrir (evita autoplay antes da hora)
+        var iframe = document.getElementById('exitIframe');
+        iframe.src = iframe.getAttribute('data-src');
+        document.getElementById('exitModal').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Desktop: mouse saindo pelo topo da janela
+    document.addEventListener('mouseleave', function(e) {
+        if (e.clientY <= 5) mostrarExit();
+    });
+
+    // Mobile: botão voltar do navegador (popstate)
+    history.pushState(null, '', location.href);
+    window.addEventListener('popstate', function() {
+        mostrarExit();
+        history.pushState(null, '', location.href);
+    });
+
+    // Tempo na página: mostra após 45s se ainda não viu
+    setTimeout(function() { if (!shown) mostrarExit(); }, 45000);
+})();
+
+function fecharExit() {
+    var modal = document.getElementById('exitModal');
+    modal.classList.remove('show');
+    document.body.style.overflow = '';
+    // para o vídeo
+    var iframe = document.getElementById('exitIframe');
+    iframe.src = '';
+    // não mostra de novo na mesma sessão
+    try { sessionStorage.setItem('exitShown','1'); } catch(e){}
+}
+
+// não mostra se já fechou nessa sessão
+try { if (sessionStorage.getItem('exitShown')) { window.removeEventListener && true; } } catch(e){}
+</script>
+<!-- ── FIM EXIT INTENT ────────────────────────────────────────────────────── -->
+
     </body>
 
 </html>

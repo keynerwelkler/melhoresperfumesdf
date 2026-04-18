@@ -23,7 +23,7 @@ switch ($acao) {
     // ── Salvar observação ─────────────────────────────────────────────────
     case 'obs':
         $id  = (int)($_POST['id'] ?? 0);
-        $obs = trim($_POST['obs'] ?? '');Plano de Negócios, Ética e Conduta, Manual do Ponto de Apoio
+        $obs = trim($_POST['obs'] ?? '');
         if (!$id) {
             echo json_encode(['ok' => false, 'msg' => 'ID inválido']);
             break;
