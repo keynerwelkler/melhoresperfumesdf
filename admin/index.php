@@ -267,35 +267,35 @@ $leads = $stmt->fetchAll();
             <div class="card-stat c1">
                 <div class="card-ico">👥</div>
                 <div class="card-info">
-                    <div class="num"><?= (int)$totais['total'] ?></div>
+                    <div class="num" id="cnt-total"><?= (int)$totais['total'] ?></div>
                     <div class="label">Total de Leads</div>
                 </div>
             </div>
             <div class="card-stat c4">
                 <div class="card-ico">🆕</div>
                 <div class="card-info">
-                    <div class="num"><?= (int)$totais['novo'] ?></div>
+                    <div class="num" id="cnt-novo"><?= (int)$totais['novo'] ?></div>
                     <div class="label">Novos</div>
                 </div>
             </div>
             <div class="card-stat c3">
                 <div class="card-ico">📞</div>
                 <div class="card-info">
-                    <div class="num"><?= (int)$totais['contato'] ?></div>
+                    <div class="num" id="cnt-contato"><?= (int)$totais['contato'] ?></div>
                     <div class="label">Em Contato</div>
                 </div>
             </div>
             <div class="card-stat c2">
                 <div class="card-ico">✅</div>
                 <div class="card-info">
-                    <div class="num"><?= (int)$totais['fechado'] ?></div>
+                    <div class="num" id="cnt-fechado"><?= (int)$totais['fechado'] ?></div>
                     <div class="label">Fechados</div>
                 </div>
             </div>
             <div class="card-stat c5">
                 <div class="card-ico">❌</div>
                 <div class="card-info">
-                    <div class="num"><?= (int)$totais['perdido'] ?></div>
+                    <div class="num" id="cnt-perdido"><?= (int)$totais['perdido'] ?></div>
                     <div class="label">Perdidos</div>
                 </div>
             </div>
@@ -376,7 +376,7 @@ $leads = $stmt->fetchAll();
                             <td><?= h($l['cidade']) ?> / <?= h($l['uf']) ?></td>
                             <td style="white-space:nowrap;color:#888;font-size:12px;"><?= $data ?></td>
                             <td>
-                                <select class="sel-status" data-id="<?= $l['id'] ?>" onchange="atualizarStatus(this)">
+                                <select class="sel-status" data-id="<?= $l['id'] ?>" data-status="<?= h($l['status']) ?>" onchange="atualizarStatus(this)">
                                     <option value="novo"    <?= $l['status']==='novo'    ? 'selected' : '' ?>>🆕 Novo</option>
                                     <option value="contato" <?= $l['status']==='contato' ? 'selected' : '' ?>>📞 Em Contato</option>
                                     <option value="fechado" <?= $l['status']==='fechado' ? 'selected' : '' ?>>✅ Fechado</option>
@@ -437,12 +437,34 @@ function copiar(texto, btn) {
 
 // ── Atualizar status via AJAX ─────────────────────────────────────────────────
 function atualizarStatus(sel) {
-    var id = sel.dataset.id;
-    var status = sel.value;
+    var id        = sel.dataset.id;
+    var novoStatus = sel.value;
+    var antigoStatus = sel.dataset.status;
+
     fetch('api.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: 'acao=status&id=' + id + '&status=' + status
+        body: 'acao=status&id=' + id + '&status=' + novoStatus
+    }).then(function(r) { return r.json(); }).then(function(d) {
+        if (!d.ok) return;
+
+        // Atualiza o data-status para o próximo change
+        sel.dataset.status = novoStatus;
+
+        // Decrementa o contador do status anterior
+        var elAntigo = document.getElementById('cnt-' + antigoStatus);
+        if (elAntigo) elAntigo.textContent = Math.max(0, parseInt(elAntigo.textContent) - 1);
+
+        // Incrementa o contador do novo status
+        var elNovo = document.getElementById('cnt-' + novoStatus);
+        if (elNovo) elNovo.textContent = parseInt(elNovo.textContent) + 1;
+
+        // Pisca o card atualizado para dar feedback visual
+        if (elNovo) {
+            elNovo.style.transition = 'color .15s';
+            elNovo.style.color = '#ff8345';
+            setTimeout(function() { elNovo.style.color = ''; }, 600);
+        }
     });
 }
 
