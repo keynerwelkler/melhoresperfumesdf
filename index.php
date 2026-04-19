@@ -317,17 +317,17 @@ function initFlyouts(){
 <!-- ── TARJA TICKER ─────────────────────────────────────────────────────── -->
 <div class="amei-ticker-wrap">
 	<div class="amei-ticker-track">
-		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado, lucro de até 150%</span>
+		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
 		<span class="amei-ticker-sep">✦</span>
 	</div>
 </div>
@@ -393,7 +393,7 @@ function initFlyouts(){
 <div class="amei-shorts-col">
 	<div class="amei-shorts-frame">
 		<iframe
-			src="https://www.youtube.com/embed/dqxNqhehyJQ?rel=0&modestbranding=1"
+			src="https://www.youtube.com/embed/dqxNqhehyJQ?autoplay=1&mute=1&rel=0&modestbranding=1&loop=1&playlist=dqxNqhehyJQ"
 			title="Amei Cosméticos — Oportunidade de Negócio"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 			allowfullscreen
@@ -1212,7 +1212,7 @@ de Alta Performance.</font></font></strong>
 
 <div style="margin:20px auto;max-width:900px;width:100%;">
 <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
-<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/NjBamkuQlzo?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+<iframe style="position:absolute;top:0;left:0;width:100%;height:100%;" src="https://www.youtube.com/embed/UOUiK1kqtuU?wmode=opaque" frameborder="0" allowfullscreen></iframe>
 </div>
 </div>
 
@@ -1562,7 +1562,7 @@ de Alta Performance.</font></font></strong>
             </iframe>
         </div>
         <div class="exit-bottom">
-            <p>Fábrica própria, sem SPC e Serasa.<br/><strong>Cadastro 100% gratuito.</strong> Comece hoje mesmo!</p>
+            <p style="font-size:17px;line-height:1.7;">Fábrica própria, perfumes árabes e importados.<br/><strong>Sem consulta ao SPC e Serasa.</strong><br/><strong style="color:#1e8449;">Cadastro 100% gratuito.</strong> Comece hoje mesmo!</p>
             <a href="cadastro.php" class="exit-cta">
                 Quero me cadastrar agora
                 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
