@@ -4,27 +4,27 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Melhores Perfumes Importados | Amei Cosméticos — Fábrica Direto ao Revendedor</title>
-<meta name="description" content="Conheça os melhores perfumes importados da Amei Cosméticos. Perfumaria fina de alta performance direto da fábrica. Seja um revendedor, ganhe 100% ou mais de lucro. Sem consulta ao SPC e Serasa!"/>
-<meta name="keywords" content="melhores perfumes, melhores perfumes importados, perfumes baratos de qualidade, perfumes importados baratos, revender perfumes, fábrica de perfumes, perfumes direto da fábrica, como ganhar dinheiro com perfumes, ser revendedor de cosméticos, Amei Cosméticos, perfumes 17ml, perfumes 30ml, perfumes 100ml, perfumaria fina, perfumes de qualidade, perfumes nacionais, renda extra com perfumes, negócio de perfumes, ganhar dinheiro revendendo, cosméticos direto da fábrica"/>
+<title>Melhores Perfumes Importados e Árabes em Brasília DF | Melhores Perfumes DF</title>
+<meta name="description" content="Compre no atacado perfumes árabes e importados em Brasília DF com lucro de até 150%. Revendedor autorizado Amei Cosméticos. Sem consulta ao SPC e Serasa. Cadastro 100% gratuito!"/>
+<meta name="keywords" content="melhores perfumes DF, perfumes importados Brasília, perfumes árabes Brasília, comprar perfumes atacado DF, revender perfumes Brasília, perfumes importados baratos DF, renda extra Brasília, perfumaria fina Brasília, perfumes direto da fábrica DF, Melhores Perfumes DF, ganhar dinheiro com perfumes Brasília, perfumes sem SPC Serasa"/>
 <meta name="robots" content="index, follow"/>
-<meta name="author" content="Amei Cosméticos"/>
-<link rel="canonical" href="https://ameicosmeticos.com.br/"/>
+<meta name="author" content="Melhores Perfumes DF"/>
+<link rel="canonical" href="https://www.melhoresperfumesdf.com.br/"/>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://ameicosmeticos.com.br/"/>
-<meta property="og:title" content="Melhores Perfumes Importados | Amei Cosméticos — Fábrica Direto ao Revendedor"/>
-<meta property="og:description" content="Conheça os melhores perfumes importados da Amei Cosméticos. Perfumaria fina de alta performance direto da fábrica. Seja um revendedor, ganhe 100% ou mais de lucro. Sem consulta ao SPC e Serasa!"/>
-<meta property="og:image" content="https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
+<meta property="og:url" content="https://www.melhoresperfumesdf.com.br/"/>
+<meta property="og:title" content="Melhores Perfumes Importados e Árabes em Brasília DF"/>
+<meta property="og:description" content="Compre no atacado perfumes árabes e importados em Brasília DF com lucro de até 150%. Sem consulta ao SPC e Serasa. Cadastro gratuito!"/>
+<meta property="og:image" content="https://www.melhoresperfumesdf.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
 <meta property="og:locale" content="pt_BR"/>
-<meta property="og:site_name" content="Amei Cosméticos"/>
+<meta property="og:site_name" content="Melhores Perfumes DF"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Melhores Perfumes Importados | Amei Cosméticos"/>
-<meta name="twitter:description" content="Perfumaria fina direto da fábrica. Revenda e ganhe 100% ou mais de lucro. Sem SPC e Serasa!"/>
-<meta name="twitter:image" content="https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
+<meta name="twitter:title" content="Melhores Perfumes Importados e Árabes em Brasília DF"/>
+<meta name="twitter:description" content="Perfumes árabes e importados no atacado em Brasília. Lucro de até 150%. Sem SPC e Serasa!"/>
+<meta name="twitter:image" content="https://www.melhoresperfumesdf.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
@@ -33,81 +33,84 @@
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://ameicosmeticos.com.br/#organization",
-      "name": "Amei Cosméticos",
-      "url": "https://ameicosmeticos.com.br/",
-      "logo": "https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png",
-      "description": "Fábrica de perfumaria fina e cosméticos de alta performance direto ao revendedor.",
+      "@id": "https://www.melhoresperfumesdf.com.br/#organization",
+      "name": "Melhores Perfumes DF",
+      "url": "https://www.melhoresperfumesdf.com.br/",
+      "logo": "https://www.melhoresperfumesdf.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png",
+      "description": "Revendedor autorizado de perfumes árabes e importados em Brasília DF. Compre no atacado com lucro de até 150%.",
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "Brasília",
+        "addressRegion": "DF",
         "addressCountry": "BR"
       },
       "contactPoint": {
         "@type": "ContactPoint",
+        "telephone": "+55-61-98229-0919",
         "contactType": "sales",
         "availableLanguage": "Portuguese"
-      },
-      "sameAs": []
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://ameicosmeticos.com.br/#website",
-      "url": "https://ameicosmeticos.com.br/",
-      "name": "Amei Cosméticos",
-      "publisher": {"@id": "https://ameicosmeticos.com.br/#organization"},
-      "inLanguage": "pt-BR",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://ameicosmeticos.com.br/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
       }
     },
     {
+      "@type": "WebSite",
+      "@id": "https://www.melhoresperfumesdf.com.br/#website",
+      "url": "https://www.melhoresperfumesdf.com.br/",
+      "name": "Melhores Perfumes DF",
+      "publisher": {"@id": "https://www.melhoresperfumesdf.com.br/#organization"},
+      "inLanguage": "pt-BR"
+    },
+    {
       "@type": "WebPage",
-      "@id": "https://ameicosmeticos.com.br/#webpage",
-      "url": "https://ameicosmeticos.com.br/",
-      "name": "Melhores Perfumes Importados | Amei Cosméticos — Fábrica Direto ao Revendedor",
-      "description": "Conheça os melhores perfumes importados da Amei Cosméticos. Perfumaria fina de alta performance direto da fábrica.",
-      "isPartOf": {"@id": "https://ameicosmeticos.com.br/#website"},
-      "about": {"@id": "https://ameicosmeticos.com.br/#organization"},
+      "@id": "https://www.melhoresperfumesdf.com.br/#webpage",
+      "url": "https://www.melhoresperfumesdf.com.br/",
+      "name": "Melhores Perfumes Importados e Árabes em Brasília DF | Melhores Perfumes DF",
+      "description": "Compre no atacado perfumes árabes e importados em Brasília DF com lucro de até 150%.",
+      "isPartOf": {"@id": "https://www.melhoresperfumesdf.com.br/#website"},
+      "about": {"@id": "https://www.melhoresperfumesdf.com.br/#organization"},
       "inLanguage": "pt-BR"
     },
     {
       "@type": "LocalBusiness",
-      "@id": "https://ameicosmeticos.com.br/#localbusiness",
-      "name": "Amei Cosméticos",
-      "url": "https://ameicosmeticos.com.br/",
-      "image": "https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png",
-      "description": "Fábrica de perfumaria fina e cosméticos. Seja um revendedor e ganhe 100% ou mais de lucro.",
+      "@id": "https://www.melhoresperfumesdf.com.br/#localbusiness",
+      "name": "Melhores Perfumes DF",
+      "url": "https://www.melhoresperfumesdf.com.br/",
+      "image": "https://www.melhoresperfumesdf.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png",
+      "description": "Revendedor autorizado de perfumes árabes e importados em Brasília DF. Compre no atacado com lucro de até 150%. Sem consulta ao SPC e Serasa.",
+      "telephone": "+55-61-98229-0919",
       "priceRange": "$$",
-      "address": {"@type": "PostalAddress", "addressCountry": "BR"},
-      "openingHours": "Mo-Fr 08:00-18:00"
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Brasília",
+        "addressRegion": "DF",
+        "addressCountry": "BR"
+      },
+      "openingHours": "Mo-Sa 08:00-20:00"
     },
     {
       "@type": "FAQPage",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Quais são os melhores perfumes importados para revender?",
+          "name": "Onde comprar perfumes importados e árabes no atacado em Brasília?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "A Amei Cosméticos oferece os melhores perfumes importados em versões de 17ml, 30ml e 100ml, com alta fixação e qualidade de perfumaria fina, ideais para revenda com lucro de 100% ou mais."
+            "text": "No Melhores Perfumes DF você compra perfumes árabes e importados no atacado em Brasília DF, com lucro de até 150%. Somos revendedores autorizados Amei Cosméticos."
           }
         },
         {
           "@type": "Question",
-          "name": "Como ganhar dinheiro revendendo perfumes?",
+          "name": "Como ganhar dinheiro revendendo perfumes em Brasília?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Com a Amei Cosméticos você compra direto da fábrica e revende com até 100% de lucro. Não consultamos SPC e Serasa. Cadastre-se gratuitamente e comece hoje."
+            "text": "Faça seu cadastro gratuito no Melhores Perfumes DF, compre no atacado e revenda com lucro de até 150%. Não consultamos SPC e Serasa. Comece hoje mesmo!"
           }
         },
         {
           "@type": "Question",
-          "name": "A Amei Cosméticos consulta SPC e Serasa?",
+          "name": "Precisa consultar SPC e Serasa para ser revendedor?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Não! A Amei Cosméticos não consulta SPC nem Serasa. Qualquer pessoa pode se tornar revendedora e trabalhar com os melhores perfumes do mercado."
+            "text": "Não! Não fazemos consulta ao SPC nem Serasa. Qualquer pessoa pode se tornar revendedor de perfumes árabes e importados em Brasília DF."
           }
         }
       ]
@@ -288,6 +291,23 @@ function initFlyouts(){
 </script>
 		
 		
+	<!-- Meta Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '1495331788955259');
+	fbq('track', 'PageView');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=1495331788955259&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Meta Pixel Code -->
 	</head>
 	<body class="header-page landing-page  wsite-page-index wsite-theme-light"><div class="wrapper">
 	  <div class="paris-header">
@@ -317,17 +337,17 @@ function initFlyouts(){
 <!-- ── TARJA TICKER ─────────────────────────────────────────────────────── -->
 <div class="amei-ticker-wrap">
 	<div class="amei-ticker-track">
-		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
+		<span>🔥 Compre no atacado. perfumes árabes e importados. lucro de até 150%!</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
+		<span>🔥 Compre no atacado. perfumes árabes e importados. lucro de até 150%!</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
+		<span>🔥 Compre no atacado. perfumes árabes e importados. lucro de até 150%!</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
+		<span>🔥 Compre no atacado. perfumes árabes e importados. lucro de até 150%!</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
+		<span>🔥 Compre no atacado. perfumes árabes e importados. lucro de até 150%!</span>
 		<span class="amei-ticker-sep">✦</span>
-		<span>🔥 Compre no atacado perfumes árabes e importados lucros de até 150%</span>
+		<span>🔥 Compre no atacado. perfumes árabes e importados. lucro de até 150%!</span>
 		<span class="amei-ticker-sep">✦</span>
 	</div>
 </div>
@@ -391,19 +411,79 @@ function initFlyouts(){
 				<td class="wsite-multicol-col" style="width:35%; padding:0 15px; vertical-align:middle; text-align:center;">
 
 <div class="amei-shorts-col">
-	<div class="amei-shorts-frame">
-		<iframe
-			src="https://www.youtube.com/embed/dqxNqhehyJQ?autoplay=1&mute=1&rel=0&modestbranding=1&loop=1&playlist=dqxNqhehyJQ"
+	<div class="amei-shorts-frame" style="position:relative;">
+		<iframe id="shortsIframe"
+			src="https://www.youtube.com/embed/dqxNqhehyJQ?autoplay=0&mute=1&rel=0&modestbranding=1&loop=1&playlist=dqxNqhehyJQ&controls=0&enablejsapi=1"
 			title="Amei Cosméticos — Oportunidade de Negócio"
 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-			allowfullscreen
-			loading="lazy">
+			allowfullscreen>
 		</iframe>
+		<!-- Overlay "ativar som" — some após o clique -->
+		<div id="soundOverlay" onclick="ativarSom()" style="
+			position:absolute; inset:0; z-index:10; cursor:pointer;
+			display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
+			padding-bottom:22px;
+			background:linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 55%);
+		">
+			<div style="
+				display:flex; align-items:center; gap:9px;
+				background:rgba(0,0,0,0.72); backdrop-filter:blur(6px);
+				border:1.5px solid rgba(255,255,255,0.25);
+				border-radius:50px; padding:10px 20px;
+				color:#fff; font-family:'Work Sans',sans-serif;
+				font-size:14px; font-weight:700; letter-spacing:.4px;
+				animation:pulseSom 1.8s ease-in-out infinite;
+			">
+				<span style="font-size:20px;">▶</span> Veja como comprar no atacado
+			</div>
+		</div>
+		<!-- Botão de volume (após ativar som) -->
+		<button id="btnVolume" onclick="toggleVolume()" title="Ativar/Desativar som" style="
+			position:absolute; bottom:14px; right:14px;
+			width:42px; height:42px; border-radius:50%;
+			background:rgba(0,0,0,0.65); border:none; cursor:pointer;
+			display:none; align-items:center; justify-content:center;
+			color:#fff; font-size:20px; z-index:10;
+			transition:background .2s; backdrop-filter:blur(4px);
+		">🔊</button>
+		<style>
+		@keyframes pulseSom {
+			0%,100% { transform:scale(1); opacity:1; }
+			50%      { transform:scale(1.05); opacity:.85; }
+		}
+		</style>
 	</div>
 	<a href="cadastro.php" class="amei-btn-cta">
 		&#x25B6; Quero me cadastrar
 	</a>
 </div>
+<script>
+var _shortsMuted = true;
+
+function ativarSom() {
+	var iframe  = document.getElementById('shortsIframe');
+	var overlay = document.getElementById('soundOverlay');
+	var btn     = document.getElementById('btnVolume');
+	iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+	iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+	_shortsMuted = false;
+	overlay.style.display = 'none';
+	btn.style.display = 'flex';
+}
+
+function toggleVolume() {
+	var iframe = document.getElementById('shortsIframe');
+	var btn    = document.getElementById('btnVolume');
+	if (_shortsMuted) {
+		iframe.contentWindow.postMessage('{"event":"command","func":"unMute","args":""}', '*');
+		btn.textContent = '🔊';
+	} else {
+		iframe.contentWindow.postMessage('{"event":"command","func":"mute","args":""}', '*');
+		btn.textContent = '🔇';
+	}
+	_shortsMuted = !_shortsMuted;
+}
+</script>
 
 				</td>				<td class="wsite-multicol-col" style="width:31.459099417781%; padding:0 15px;">
 					

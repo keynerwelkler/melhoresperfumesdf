@@ -15,7 +15,7 @@ $totais = $pdo->query("
 
 // ── Buscar todos os leads ─────────────────────────────────────────────────────
 $busca  = trim($_GET['busca']  ?? '');
-$status = trim($_GET['status'] ?? '');
+$status = trim($_GET['status'] ?? 'novo');
 $ordem  = trim($_GET['ordem']  ?? 'recente');
 
 $where  = [];
@@ -215,6 +215,34 @@ $leads = $stmt->fetchAll();
 
     .empty-state { text-align: center; padding: 60px 20px; color: #bbb; }
     .empty-state .ico { font-size: 48px; margin-bottom: 12px; }
+
+    /* FILTROS RÁPIDOS */
+    .filtros-rapidos { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .filtro-pill {
+        display: flex; align-items: center; gap: 8px;
+        padding: 10px 18px; border-radius: 12px;
+        background: #fff; border: 1.5px solid #e8eaf0;
+        text-decoration: none; color: #555;
+        font-size: 13px; font-weight: 600;
+        transition: all .18s; cursor: pointer;
+        box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    }
+    .filtro-pill:hover { border-color: var(--laranja); color: var(--laranja); transform: translateY(-1px); }
+    .filtro-pill.ativo {
+        background: var(--pill-cor, var(--laranja));
+        border-color: var(--pill-cor, var(--laranja));
+        color: #fff;
+        box-shadow: 0 4px 14px rgba(0,0,0,.15);
+    }
+    .filtro-pill.ativo .pill-cnt { background: rgba(255,255,255,.25); color: #fff; }
+    .pill-ico { font-size: 16px; line-height: 1; }
+    .pill-label { white-space: nowrap; }
+    .pill-cnt {
+        background: #f0f2f7; color: #666;
+        font-size: 11px; font-weight: 700;
+        padding: 2px 8px; border-radius: 20px;
+        min-width: 24px; text-align: center;
+    }
     </style>
 </head>
 <body>
@@ -301,33 +329,52 @@ $leads = $stmt->fetchAll();
             </div>
         </div>
 
+        <!-- FILTROS RÁPIDOS -->
+        <div class="filtros-rapidos">
+            <?php
+            $filtros = [
+                '' =>        ['label' => 'Todos',      'ico' => '👥', 'cnt' => (int)$totais['total'],   'cor' => '#ff8345'],
+                'novo' =>    ['label' => 'Novos',      'ico' => '🆕', 'cnt' => (int)$totais['novo'],    'cor' => '#9b59b6'],
+                'contato' => ['label' => 'Em Contato', 'ico' => '📞', 'cnt' => (int)$totais['contato'], 'cor' => '#3498db'],
+                'fechado' => ['label' => 'Fechados',   'ico' => '✅', 'cnt' => (int)$totais['fechado'], 'cor' => '#2ecc71'],
+                'perdido' => ['label' => 'Perdidos',   'ico' => '❌', 'cnt' => (int)$totais['perdido'], 'cor' => '#e74c3c'],
+            ];
+            foreach ($filtros as $val => $f):
+                $ativo = ($status === $val);
+                $params = array_filter(['status' => $val, 'busca' => $busca, 'ordem' => $ordem]);
+                if ($val === '') $params['status'] = '';
+                $href  = 'index.php?' . http_build_query($params);
+            ?>
+            <a href="<?= $href ?>" class="filtro-pill <?= $ativo ? 'ativo' : '' ?>"
+               style="<?= $ativo ? "--pill-cor:{$f['cor']}" : '' ?>">
+                <span class="pill-ico"><?= $f['ico'] ?></span>
+                <span class="pill-label"><?= $f['label'] ?></span>
+                <span class="pill-cnt" id="fcnt-<?= $val ?: 'todos' ?>"><?= $f['cnt'] ?></span>
+            </a>
+            <?php endforeach; ?>
+        </div>
+
         <!-- TABELA -->
         <div class="panel">
             <div class="panel-header">
                 <div class="panel-titulo">
-                    Todos os Leads
+                    <?= $status ? ($filtros[$status]['ico'] . ' ' . $filtros[$status]['label']) : '👥 Todos os Leads' ?>
                     <span class="cnt"><?= count($leads) ?></span>
                 </div>
                 <form method="GET" action="index.php" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;">
+                    <?php if ($status): ?><input type="hidden" name="status" value="<?= h($status) ?>"><?php endif; ?>
                     <div class="busca-wrap">
                         <span class="ico-lupa">🔍</span>
                         <input type="text" name="busca" placeholder="Buscar nome, e-mail..."
                                value="<?= h($busca) ?>" oninput="this.form.submit()"/>
                     </div>
-                    <select class="filtro" name="status" onchange="this.form.submit()">
-                        <option value="">Todos os status</option>
-                        <option value="novo"    <?= $status==='novo'    ? 'selected' : '' ?>>Novo</option>
-                        <option value="contato" <?= $status==='contato' ? 'selected' : '' ?>>Em Contato</option>
-                        <option value="fechado" <?= $status==='fechado' ? 'selected' : '' ?>>Fechado</option>
-                        <option value="perdido" <?= $status==='perdido' ? 'selected' : '' ?>>Perdido</option>
-                    </select>
                     <select class="filtro" name="ordem" onchange="this.form.submit()">
                         <option value="recente" <?= $ordem==='recente' ? 'selected' : '' ?>>Mais Recentes</option>
                         <option value="antigo"  <?= $ordem==='antigo'  ? 'selected' : '' ?>>Mais Antigos</option>
                         <option value="nome"    <?= $ordem==='nome'    ? 'selected' : '' ?>>Nome A-Z</option>
                     </select>
-                    <?php if ($busca || $status): ?>
-                        <a href="index.php" class="btn-header ghost" style="padding:8px 12px;font-size:12px;">✕ Limpar</a>
+                    <?php if ($busca): ?>
+                        <a href="index.php<?= $status ? '?status='.$status : '' ?>" class="btn-header ghost" style="padding:8px 12px;font-size:12px;">✕ Limpar busca</a>
                     <?php endif; ?>
                 </form>
             </div>

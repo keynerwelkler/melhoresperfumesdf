@@ -164,38 +164,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Cadastro de Consultor(a) Grátis | Amei Cosméticos — Comece a Revender Perfumes</title>
-<meta name="description" content="Faça seu cadastro gratuito como consultor(a) Amei Cosméticos. Sem consulta ao SPC e Serasa. Comece a revender os melhores perfumes importados e ganhe 100% ou mais de lucro!"/>
-<meta name="keywords" content="cadastro consultor Amei Cosméticos, ser revendedor de perfumes, cadastro gratuito perfumes, revenda de perfumes sem SPC, trabalhar com perfumes importados, consultora de cosméticos, cadastro revenda perfumaria fina"/>
+<title>Cadastro Gratuito de Revendedor | Melhores Perfumes DF — Perfumes Árabes e Importados</title>
+<meta name="description" content="Cadastre-se grátis e revenda perfumes árabes e importados em Brasília DF com lucro de até 150%. Sem consulta ao SPC e Serasa. Revendedor autorizado Amei Cosméticos."/>
+<meta name="keywords" content="cadastro revendedor perfumes DF, ser revendedor perfumes Brasília, cadastro gratuito perfumes atacado, revenda perfumes sem SPC Brasília, trabalhar com perfumes importados DF, renda extra Brasília, cadastro Melhores Perfumes DF"/>
 <meta name="robots" content="index, follow"/>
-<meta name="author" content="Amei Cosméticos"/>
-<link rel="canonical" href="https://ameicosmeticos.com.br/cadastro.php"/>
+<meta name="author" content="Melhores Perfumes DF"/>
+<link rel="canonical" href="https://www.melhoresperfumesdf.com.br/cadastro.php"/>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://ameicosmeticos.com.br/cadastro.php"/>
-<meta property="og:title" content="Cadastro Gratuito de Consultor(a) | Amei Cosméticos"/>
-<meta property="og:description" content="Cadastre-se grátis e comece a revender os melhores perfumes importados. Sem SPC e Serasa!"/>
-<meta property="og:image" content="https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
+<meta property="og:url" content="https://www.melhoresperfumesdf.com.br/cadastro.php"/>
+<meta property="og:title" content="Cadastro Gratuito de Revendedor | Melhores Perfumes DF"/>
+<meta property="og:description" content="Cadastre-se grátis e revenda perfumes árabes e importados em Brasília DF com lucro de até 150%. Sem SPC e Serasa!"/>
+<meta property="og:image" content="https://www.melhoresperfumesdf.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
 <meta property="og:locale" content="pt_BR"/>
-<meta property="og:site_name" content="Amei Cosméticos"/>
+<meta property="og:site_name" content="Melhores Perfumes DF"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Cadastro Gratuito | Amei Cosméticos"/>
-<meta name="twitter:description" content="Cadastre-se grátis e revenda os melhores perfumes importados com até 100% de lucro!"/>
-<meta name="twitter:image" content="https://ameicosmeticos.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
+<meta name="twitter:title" content="Cadastro Gratuito | Melhores Perfumes DF"/>
+<meta name="twitter:description" content="Revenda perfumes árabes e importados em Brasília com até 150% de lucro. Sem SPC e Serasa!"/>
+<meta name="twitter:image" content="https://www.melhoresperfumesdf.com.br/uploads/1/2/9/1/12910257/background-images/334998943.png"/>
 
 <!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://ameicosmeticos.com.br/cadastro.php#webpage",
-  "url": "https://ameicosmeticos.com.br/cadastro.php",
-  "name": "Cadastro de Consultor(a) Grátis | Amei Cosméticos — Comece a Revender Perfumes",
-  "description": "Faça seu cadastro gratuito como consultor(a) Amei Cosméticos e comece a revender os melhores perfumes importados.",
-  "isPartOf": {"@id": "https://ameicosmeticos.com.br/#website"},
+  "@id": "https://www.melhoresperfumesdf.com.br/cadastro.php#webpage",
+  "url": "https://www.melhoresperfumesdf.com.br/cadastro.php",
+  "name": "Cadastro Gratuito de Revendedor | Melhores Perfumes DF",
+  "description": "Cadastre-se grátis e revenda perfumes árabes e importados em Brasília DF com lucro de até 150%.",
+  "isPartOf": {"@id": "https://www.melhoresperfumesdf.com.br/#website"},
   "inLanguage": "pt-BR"
 }
 </script>
@@ -253,7 +253,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 	body.wsite-background {background-attachment: fixed !important;}.wsite-background.wsite-custom-background{ background-size: cover !important}
 	.wsite-menu-default a {letter-spacing: 1px !important;}
 	.wsite-menu a {font-family:"Roboto" !important;}
-	.wsite-button-inner {}
 	@media screen and (min-width: 767px) {
 		.wsite-menu-default a {font-size:10px !important;}
 	}
@@ -398,6 +397,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 	var ASSETS_BASE = 'http://cdn2.editmysite.com/';
 	var STYLE_PREFIX = 'wsite';
 	</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1495331788955259');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1495331788955259&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 
 <body class="wsite-page-index wsite-theme-light"><div class="wrapper">
@@ -550,14 +566,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && $pdo) {
 								<div class="form-group">
 									<label for="senha">Senha <span class="req">*</span></label>
 									<div class="senha-wrapper">
-										<input type="password" id="senha" name="senha" required />
+										<input type="password" id="senha" name="senha" required autocomplete="new-password" />
 										<span class="senha-toggle" onclick="toggleSenha('senha', this)">&#128065;</span>
 									</div>
 								</div>
 								<div class="form-group">
 									<label for="senhaConfirm">Redigite a senha <span class="req">*</span></label>
 									<div class="senha-wrapper">
-										<input type="password" id="senhaConfirm" name="senha_confirm" required />
+										<input type="password" id="senhaConfirm" name="senha_confirm" required autocomplete="new-password" />
 										<span class="senha-toggle" onclick="toggleSenha('senhaConfirm', this)">&#128065;</span>
 									</div>
 								</div>
